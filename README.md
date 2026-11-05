@@ -1,6 +1,6 @@
 # Career Site Jobs Scraper
 
-![Career Site Jobs Scraper: live jobs from 12,000+ company career sites on Greenhouse, Lever, Ashby and Workday](https://raw.githubusercontent.com/smoldesk/apify-scrapers/main/assets/career-site/banner.png)
+![Career Site Jobs Scraper: live jobs from 12,000+ company career sites on Greenhouse, Lever, Ashby and Workday](https://raw.githubusercontent.com/smoldesk/apify-scrapers/main/assets/career-site/banner.webp)
 
 Search live jobs straight from company career sites on Greenhouse, Lever, Ashby and Workday. Over 12,000 boards and 1 million open jobs. No login. Runs on [Apify](https://apify.com/smoldesk/career-site-jobs-scraper).
 
