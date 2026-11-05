@@ -1,6 +1,8 @@
 # Career Site Jobs Scraper
 
-Search live jobs straight from company career sites on Greenhouse, Lever, Ashby and Workday. Over 13,000 boards and 1 million open jobs. No login. Runs on [Apify](https://apify.com/smoldesk/career-site-jobs-scraper).
+![Career Site Jobs Scraper: live jobs from 12,000+ company career sites on Greenhouse, Lever, Ashby and Workday](https://raw.githubusercontent.com/smoldesk/apify-scrapers/main/assets/career-site/banner.png)
+
+Search live jobs straight from company career sites on Greenhouse, Lever, Ashby and Workday. Over 12,000 boards and 1 million open jobs. No login. Runs on [Apify](https://apify.com/smoldesk/career-site-jobs-scraper).
 
 ## What you get
 
@@ -67,7 +69,7 @@ Pay per result. No monthly fee.
 | Boards read | $0.004 per 1,000 boards |
 | Closed-job notice | Free |
 
-A full scan of the directory reads about 13,000 boards, which adds about $0.05.
+A full scan of the directory reads about 12,900 boards, which adds about $0.05.
 
 ## Limits
 
@@ -82,7 +84,7 @@ A full scan of the directory reads about 13,000 boards, which adds about $0.05.
 No. This reads the public job boards candidates see.
 
 **How do I search jobs across many companies at once?**
-Leave `companies` empty and set `titleKeywords`. The directory covers 13,000+ boards.
+Leave `companies` empty and set `titleKeywords`. The directory covers 12,000+ boards.
 
 **How do I get all jobs of one company?**
 Put the company name, careers URL or `ats:slug` in `companies`. Set `maxJobs` to the number you need.
