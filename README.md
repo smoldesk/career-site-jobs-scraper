@@ -66,10 +66,10 @@ Pay per result. No monthly fee.
 | Result | Price |
 |---|---|
 | Job | $2 per 1,000 |
-| Boards read | $0.004 per 1,000 boards |
+| Boards read | $0.006 per 1,000 boards ($0.004 until 21 Nov 2026) |
 | Closed-job notice | Free |
 
-A full scan of the directory reads about 12,900 boards, which adds about $0.05.
+A full scan of the directory reads about 12,900 boards, which adds about $0.08.
 
 ## Limits
 
