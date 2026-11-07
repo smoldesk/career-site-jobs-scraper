@@ -97,4 +97,4 @@ Turn on `onlyNewJobs` and schedule the run daily. Closed postings arrive as free
 
 ## More scrapers
 
-Career Site Jobs is one of 18 no-login scrapers by Smoldesk Studios. See the full list: [smoldesk/apify-scrapers](https://github.com/smoldesk/apify-scrapers).
+Career Site Jobs is one of 19 no-login scrapers by Smoldesk Studios. See the full list: [smoldesk/apify-scrapers](https://github.com/smoldesk/apify-scrapers).
