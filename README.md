@@ -1,15 +1,17 @@
-# Career Site Jobs Scraper
+# Career Site & Remote Jobs Scraper
 
 ![Career Site Jobs Scraper: live jobs from 12,000+ company career sites on Greenhouse, Lever, Ashby and Workday](https://raw.githubusercontent.com/smoldesk/apify-scrapers/main/assets/career-site/banner.webp)
 
-Search live jobs straight from company career sites on Greenhouse, Lever, Ashby and Workday. Over 12,000 boards and 1 million open jobs. No login. Runs on [Apify](https://apify.com/smoldesk/career-site-jobs-scraper).
+Search live jobs straight from company career sites on Greenhouse, Lever, Ashby and Workday. Over 12,000 boards and 1 million open jobs. Find remote jobs you can take from your country, with visa sponsorship and salary in USD. No login. Runs on [Apify](https://apify.com/smoldesk/career-site-jobs-scraper).
 
 ## What you get
 
 - **Directory search**: filter all boards by title keywords, locations, remote or hybrid, seniority and posted-within days.
 - **Company mode**: paste a careers page, an `ats:slug` or a company name. Also covers Workable, Recruitee, SmartRecruiters and Personio.
 - **Job data**: title, department, location, workplace type, employment type, seniority, posting date and apply URL.
-- **Salary**: from the ATS pay fields, or parsed from the description text.
+- **Salary**: from the ATS pay fields, or parsed from the description text, plus the range in USD per year.
+- **Remote eligibility**: every remote job tagged `worldwide`, `region` (EMEA, APAC, LATAM, Europe...) or `country` (ISO codes), read from the location and, when that only says "Remote", from rules in the ad. Filter with `remoteEligibleFrom: ["Malaysia"]`.
+- **Visa sponsorship** (true / false / null) and **years of experience** asked, read from the ad text.
 - **Full description** as Markdown and HTML.
 - **Closed jobs**: a free `status: "closed"` record when a posting disappears.
 - **New jobs only** mode for daily monitoring.
@@ -34,6 +36,12 @@ curl -X POST "https://api.apify.com/v2/acts/smoldesk~career-site-jobs-scraper/ru
 
 For one company: `{"companies": ["https://boards.greenhouse.io/stripe", "lever:netflix"]}`.
 
+Remote jobs open to people in Brazil, paying at least $60,000 a year:
+
+```json
+{"titleKeywords": ["backend engineer"], "remoteEligibleFrom": ["Brazil"], "minSalaryUsd": 60000, "maxJobs": 50}
+```
+
 ## Sample output
 
 ```json
@@ -46,6 +54,9 @@ For one company: `{"companies": ["https://boards.greenhouse.io/stripe", "lever:n
   "location": "United States",
   "workplaceType": "remote",
   "isRemote": true,
+  "remoteScope": "country",
+  "remoteCountries": ["US"],
+  "remoteRegions": [],
   "employmentType": "full-time",
   "seniority": "mid",
   "postedAt": "2026-10-14T07:38:51.919000+00:00",
@@ -89,8 +100,14 @@ Leave `companies` empty and set `titleKeywords`. The directory covers 12,000+ bo
 **How do I get all jobs of one company?**
 Put the company name, careers URL or `ats:slug` in `companies`. Set `maxJobs` to the number you need.
 
+**Can I get only remote jobs I can take from my country?**
+Set `remoteEligibleFrom` to your country or region, e.g. `["Germany"]` or `["APAC"]`. Worldwide jobs and jobs for your region pass; "Remote - US" jobs don't. Jobs that only say "Remote" are left out unless you set `includeUnspecifiedRemote`.
+
 **Can I filter remote jobs with a salary?**
-Set `workplaceTypes` to `["remote"]` and keep the results where `salaryMin` is not null.
+Set `workplaceTypes` to `["remote"]` and `salaryOnly` to `true`, or set `minSalaryUsd`.
+
+**Can I find jobs that sponsor visas?**
+Set `visaSponsorshipOnly` to `true`. Only ads that say so are kept.
 
 **How do I track new postings?**
 Turn on `onlyNewJobs` and schedule the run daily. Closed postings arrive as free `closed` records.
